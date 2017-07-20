@@ -5,14 +5,19 @@
     xmlns:local="using:RestaurantManager"
     xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
     xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+    DataContext="{StaticResource DataManager}"
     mc:Ignorable="d">
-
+    
     <Page.TopAppBar>
         <AppBar IsOpen="True">
             <AppBarButton Icon="Home" Content="Home" x:Name="HomeBtn" Click="HomeBtn_Click"/>
         </AppBar>
     </Page.TopAppBar>
-    
+    <Page.Resources>
+        <Style TargetType="ListView">
+            
+        </Style>
+    </Page.Resources>
     <Grid Background="{ThemeResource ApplicationPageBackgroundThemeBrush}">
         <Grid.RowDefinitions>
             <RowDefinition Height="2*"/>
@@ -27,8 +32,9 @@
             <ColumnDefinition Width="25*"/>
         </Grid.ColumnDefinitions>
 
-        <TextBlock Grid.Column="1" Grid.Row="1" Text="Special Requests:"/>
-        <TextBlock Grid.Column="2" Grid.Row="1" Text="Order Items:"/>
+        <ToggleSwitch  Grid.Column="1" Grid.Row="1" OnContent="Expedite" OffContent="Not Expedite"/>
+        <ListView x:Name="MenuItemsList" Grid.Column="0" Grid.Row="1" Grid.RowSpan="2" ItemsSource="{Binding MenuItems}" SelectionChanged="MenuItemsList_SelectionChanged"/>
+        <ListView x:Name="SelectedMenuItemsList" Grid.Column="2" Grid.Row="1" Grid.RowSpan="2" ItemsSource="{Binding CurrentlySelectedMenuItems}" SelectionChanged="SelectedMenuItemsList_SelectionChanged"/>
         <Button x:Name="AddOrderBtn" Grid.Column="0" Grid.Row="4" Content="Add to Order" Click="AddOrderBtn_Click"/>
         <Button x:Name="SubmitOrder" Grid.Column="1" Grid.ColumnSpan="2" Grid.Row="4" Content="Submit Order" Click="SubmitOrder_Click"/>
     </Grid>

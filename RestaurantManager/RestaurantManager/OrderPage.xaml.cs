@@ -1,4 +1,5 @@
-﻿using System;
+﻿using RestaurantManager.Models;
+using System;
 using System.Collections.Generic;
 using System.IO;
 using System.Linq;
@@ -34,17 +35,30 @@ namespace RestaurantManager
 
         private void AddOrderBtn_Click(object sender, RoutedEventArgs e)
         {
-            //Add Order
+            object SelectedItem = MenuItemsList.SelectedItem;
+            (this.DataContext as DataManager).CurrentlySelectedMenuItems.Add((String)SelectedItem);
         }
 
         private void SubmitOrder_Click(object sender, RoutedEventArgs e)
         {
             //Submit the Order
+            DataManager Item = (this.DataContext as DataManager);
+            Item.OrderItems.Add(new Order(Item.CurrentlySelectedMenuItems.ToList<String>()));
         }
 
         private void HomeBtn_Click(object sender, RoutedEventArgs e)
         {
             (Window.Current.Content as Frame).Navigate(typeof(MainPage));
+        }        
+
+        private void MenuItemsList_SelectionChanged(object sender, SelectionChangedEventArgs e)
+        {
+            
+        }
+
+        private void SelectedMenuItemsList_SelectionChanged(object sender, SelectionChangedEventArgs e)
+        {
+            
         }
     }
 }

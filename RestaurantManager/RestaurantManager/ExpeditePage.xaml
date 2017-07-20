@@ -5,7 +5,9 @@
     xmlns:local="using:RestaurantManager"
     xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
     xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
-    mc:Ignorable="d">
+    mc:Ignorable="d"
+    DataContext="{StaticResource DataManager}">
+    
     <Page.TopAppBar>
         <AppBar IsOpen="True">
             <AppBarButton Icon="Home" Content="Home" x:Name="HomeBtn" Click="HomeBtn_Click"/>
@@ -17,7 +19,7 @@
             <RowDefinition Height="9*"/>
             <RowDefinition Height="1*"/>
         </Grid.RowDefinitions>
-
+        <ListBox Grid.Column="0" Grid.Row="0" ItemsSource="{Binding OrderItems}"/>
         <Button Content="Clear All Orders" Grid.Column="0" Grid.Row="1"/>
     </Grid>
 </Page>
