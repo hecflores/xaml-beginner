@@ -26,5 +26,17 @@ namespace RestaurantManager
         {
             this.InitializeComponent();
         }
+
+        private void Button_Click(object sender, RoutedEventArgs e)
+        {
+            Frame frame = Window.Current.Content as Frame;
+            frame.Navigate(typeof(ExpeditePage));
+        }
+
+        private void Button_Click_1(object sender, RoutedEventArgs e)
+        {
+            Frame frame = Window.Current.Content as Frame;
+            frame.Navigate(typeof(OrderPage));
+        }
     }
 }

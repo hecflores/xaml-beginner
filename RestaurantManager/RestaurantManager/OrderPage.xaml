@@ -7,6 +7,12 @@
     xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
     mc:Ignorable="d">
 
+    <Page.TopAppBar>
+        <AppBar IsOpen="True">
+            <AppBarButton Icon="Home" Content="Home" x:Name="HomeBtn" Click="HomeBtn_Click"/>
+        </AppBar>
+    </Page.TopAppBar>
+    
     <Grid Background="{ThemeResource ApplicationPageBackgroundThemeBrush}">
         <Grid.RowDefinitions>
             <RowDefinition Height="2*"/>
@@ -23,7 +29,7 @@
 
         <TextBlock Grid.Column="1" Grid.Row="1" Text="Special Requests:"/>
         <TextBlock Grid.Column="2" Grid.Row="1" Text="Order Items:"/>
-        <TextBlock Grid.Column="0" Grid.Row="4" Text="**Add to Order**"/>
-        <TextBlock Grid.Column="1" Grid.ColumnSpan="2" Grid.Row="4" Text="**Submit Order**"/>
+        <Button x:Name="AddOrderBtn" Grid.Column="0" Grid.Row="4" Content="Add to Order" Click="AddOrderBtn_Click"/>
+        <Button x:Name="SubmitOrder" Grid.Column="1" Grid.ColumnSpan="2" Grid.Row="4" Content="Submit Order" Click="SubmitOrder_Click"/>
     </Grid>
 </Page>

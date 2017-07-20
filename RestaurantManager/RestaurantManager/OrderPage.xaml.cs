@@ -22,9 +22,29 @@ namespace RestaurantManager
     /// </summary>
     public sealed partial class OrderPage : Page
     {
+        private List<Order> _Orders = new List<Order>();
+        public List<Order> Orders { get => _Orders; set => _Orders = value; }
+
         public OrderPage()
         {
             this.InitializeComponent();
+        }
+
+        
+
+        private void AddOrderBtn_Click(object sender, RoutedEventArgs e)
+        {
+            //Add Order
+        }
+
+        private void SubmitOrder_Click(object sender, RoutedEventArgs e)
+        {
+            //Submit the Order
+        }
+
+        private void HomeBtn_Click(object sender, RoutedEventArgs e)
+        {
+            (Window.Current.Content as Frame).Navigate(typeof(MainPage));
         }
     }
 }
